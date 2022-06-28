@@ -1,0 +1,6 @@
+# End to End tests for Terraform Provider Namespace Management
+# Performs the following:-
+# - Ask Terraform to ensure an environment exists
+# - Run all applicable tests after instantiation
+# - Ask Terraform to remove the specified environment
+# - Logs success and failure info to a new GitHub Issue

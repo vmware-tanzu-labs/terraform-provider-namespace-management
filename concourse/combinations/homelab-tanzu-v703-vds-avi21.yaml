@@ -1,0 +1,83 @@
+# TODO This is current an example of what we are aiming to do. 
+#      IT IS NOT USED TODAY.
+
+# Tanzu v1.16.8+vmware.1-tkg.1
+# vSphere ESXI 7.0.3 (7.0u3)
+# vSphere vDS networking
+# Avi Load Balancer v21.x (latest minor version)
+
+# Environment is specific to the target test environment
+environments:
+- title: Adam's Existing Homelab
+  pipeline: adams-homelab-lab01
+  name: adams-homelab
+  lab: lab01
+  # TODO adopt the lab01 existing config - don't deploy own (i.e. re-use VMs)
+  shutdown:
+  - vrnimgr01
+  - vrni-collector01
+  - verni-collector02
+  startup:
+  - vesxi01
+  - vesxi02
+  - vesxi03
+  startup_after_always:
+  - vrnimgr01
+  - vrni-collector01
+  - verni-collector02
+# - title: Adam's Homelab fresh deploy
+#   pipeline: adams-homelab-fresh
+#   name: adams-homelab
+#   lab: emphemeral01
+#   shutdown:
+#   - vesxi01
+#   - vesxi02
+#   - vesxi03
+#   - vrnimgr01
+#   - vrni-collector01
+#   - verni-collector02
+#   startup_after_success:
+#   - vesxi01
+#   - vesxi02
+#   - vesxi03
+#   - vrnimgr01
+#   - vrni-collector01
+#   - verni-collector02
+# - title: h2o fresh deploy
+#   pipeline: h20-fresh
+#   name: h20
+#   size: medium
+
+# Versions are deployed versions not (just) provided in terraform variables
+versions:
+  runtime: tkgs
+  tkr: v1.16.8+vmware.1-tkg.1
+  esxi: 7.0.3
+  avi: 21.1.2
+
+# TF formatted variables for the modules (may duplicate versions info)
+tfvars:
+  file: adams-homelab.tfvars
+  overrides:
+    # Note, whilst Terraform is declarative, sometimes you need to explitly prevent deployment (E.g. a new Avi instance)
+    deploy_esxi: false
+    deploy_vsphere: false
+    deploy_vds: false
+    deploy_nsxt: false
+    deploy_avi: true
+
+    load_balancer_provider: AVI
+    avi_version: "21.1.2"
+    avi_vm_template: "controller-21.1.2-9124"
+    supervisor_tkr: "v1.16.8---vmware.1-tkg.1"
+    # workload_tkr: TODO when we support workload tests
+    avi_password: ((adams_homelab_avi_password))
+    avi_backup_passphrase: ((adams_homelab_avi_password))
+    vsphere_password: ((adams_homelab_vsphere_password))
+  # Tear down via terraform delete after a successful run?
+  delete_after: true
+
+# Some tests may not run on some environments
+# Note: Tests should detect from tfvars / versions if they are applicable generally - E.g. Avi LB config tests - and should not be included here
+skip:
+- wibble
