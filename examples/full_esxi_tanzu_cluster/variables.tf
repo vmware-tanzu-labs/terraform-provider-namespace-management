@@ -264,7 +264,7 @@ variable "tanzu_service_cidr_network" {
 }
 variable "tanzu_service_cidr_mask" {
   type = number
-  default = 23
+  default = 12
 }
 
 variable "tanzu_network_ip_assignment_mode" {

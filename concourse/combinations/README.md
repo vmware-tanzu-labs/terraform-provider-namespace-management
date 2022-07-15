@@ -4,7 +4,7 @@ We only test currently supported versions, and upcoming versions.
 We presume upcoming versions are backward compatible with the latest
 previous minor version unless told otherwise.
 
-Note: Currently (June 2022) this project supports its modules and providers for
+Note: Currently (July 2022) this project supports its modules and providers for
 Terraform on a best efforts, open source basis. This is a Tanzu Labs project rather
 than a fully VMware supported product offering at this time. If you'd like this to
 change please provide regular feedback to your VMware Tanzu Sales Engineer.

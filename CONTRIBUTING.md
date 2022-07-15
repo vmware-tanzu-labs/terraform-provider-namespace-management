@@ -1,9 +1,7 @@
 # Contributing to terraform-provider-namespace-management
 
-TODO replace with CLA (As it's Apache 2.0)
-
 The terraform-provider-namespace-management project team welcomes contributions from the community. Before you start working with terraform-provider-namespace-management, please
-read our [Developer Certificate of Origin](https://cla.vmware.com/dco). All contributions to this repository must be
+Read our [Contributor License Agreement](https://cla.vmware.com/cla/1/preview). All contributions to this repository must be
 signed as described on that page. Your signature certifies that you wrote the patch or have the right to pass it on
 as an open-source patch.
 
@@ -11,7 +9,7 @@ as an open-source patch.
 
 This is a rough outline of what a contributor's workflow looks like:
 
-- Create a topic branch from where you want to base your work
+- Create a topic branch from where you want to base your work using the naming convention feature-GITHUBISSUENUM as per GitFlow
 - Make commits of logical units
 - Make sure your commit messages are in the proper format (see below)
 - Push your changes to a topic branch in your fork of the repository
@@ -21,19 +19,19 @@ Example:
 
 ``` shell
 git remote add upstream https://github.com/vmware-tanzu-labs/terraform-provider-namespace-management.git
-git checkout -b my-new-feature main
+git checkout -b my-new-feature develop
 git commit -a
 git push origin my-new-feature
 ```
 
 ### Staying In Sync With Upstream
 
-When your branch gets out of sync with the vmware-tanzu-labs/main branch, use the following to update:
+When your branch gets out of sync with the vmware-tanzu-labs/develop branch, use the following to update:
 
 ``` shell
 git checkout my-new-feature
 git fetch -a
-git pull --rebase upstream main
+git pull --rebase upstream develop
 git push --force-with-lease origin my-new-feature
 ```
 
