@@ -2,11 +2,11 @@ module github.com/vmware/terraform-provider-namespace-management
 
 go 1.18
 
-replace github.com/vmware/govmomi => /Users/afowler/Documents/git/govmomi
+// replace github.com/vmware/govmomi => /Users/afowler/Documents/git/govmomi
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.8.0
-	github.com/vmware/govmomi v0.28.0
+	github.com/vmware/govmomi v0.30.0 // doesn't exist yet, early August 2022
 )
 
 require (
