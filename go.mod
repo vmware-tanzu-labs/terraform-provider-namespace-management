@@ -1,12 +1,10 @@
 module github.com/vmware/terraform-provider-namespace-management
 
-go 1.18
-
-replace github.com/vmware/govmomi => github.com/adamfowleruk/govmomi v0.28.1-0.20220720115642-642156dd6e51
+go 1.19
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.8.0
-	github.com/vmware/govmomi v0.29.0
+	github.com/vmware/govmomi v0.30.2
 )
 
 require (
@@ -36,9 +34,9 @@ require (
 	github.com/rogpeppe/go-internal v1.8.1 // indirect
 	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	github.com/zclconf/go-cty v1.8.4 // indirect
-	golang.org/x/net v0.0.0-20210326060303-6b1517762897 // indirect
-	golang.org/x/sys v0.0.0-20210502180810-71e4cd670f79 // indirect
-	golang.org/x/text v0.3.5 // indirect
+	golang.org/x/net v0.7.0 // indirect
+	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
 	google.golang.org/appengine v1.6.6 // indirect
 	google.golang.org/genproto v0.0.0-20200711021454-869866162049 // indirect
 	google.golang.org/grpc v1.32.0 // indirect
